@@ -13,3 +13,11 @@
   tags:
     - bootstrap
     - bootstrap-node
+
+- hosts: mesos-master
+  sudo: yes
+  roles:
+    - bootstrap-mesos-master
+  tags:
+    - bootstrap
+    - bootstrap-mesos-master
