@@ -1,0 +1,45 @@
+---
+# - name: Turn off firewalld for docker
+#   service: name=firewalld state=stopped enabled=no
+
+- name: Upgrade all packages
+  yum: name=* state=latest
+
+- name: Install packages for data compression utilities
+  yum: name={{ item }} state=present
+  with_items:
+    - tar
+    - xz
+    - unzip
+    - curl
+    - ipset
+
+- name: Set Selinux permissive
+  selinux: policy=targeted state=permissive
+
+- name: Set Selinux permissive via cli
+  command: sudo setenforce 0
+
+- name: Add group nogroup
+  group: name=nogroup state=present
+
+- name: Enable OverlayFS
+  lineinfile: dest=/etc/modules-load.d/overlay.conf regexp="^overlay" line=overlay state=present create=yes
+
+- name: Load kernel module
+  modprobe: name=overlay state=present
+
+- name: Configure yum to use the Docker yum repo
+  template: src=docker.repo.j2 dest=/etc/yum.repos.d/docker.repo
+
+- name: Ensure /etc/systemd/system/docker.service.d exists
+  file: path=/etc/systemd/system/docker.service.d state=directory
+
+- name: Configure systemd to run the Docker Daemon with OverlayFS
+  template: src=override.conf.j2 dest=/etc/systemd/system/docker.service.d/override.conf
+
+- name: Install the Docker engine
+  yum: name=docker-engine state=latest
+
+- name: Enable and start the Docker engine
+  service: name=docker  enabled=yes state=started

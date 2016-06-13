@@ -1,0 +1,7 @@
+--- 
+- hosts: dcos-cluster, bootstrap
+  sudo: yes
+  roles:
+    - common
+  tags:
+    - common
