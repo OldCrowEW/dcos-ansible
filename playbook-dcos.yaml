@@ -1,5 +1,5 @@
 --- 
-- hosts: dcos-cluster, bootstrap
+- hosts: dcos-cluster,dcos-bootstrap
   sudo: yes
   roles:
     - common
