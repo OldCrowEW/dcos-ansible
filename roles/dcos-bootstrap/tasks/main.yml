@@ -17,7 +17,6 @@
     chdir: /
 
 ## cheat and run raw docker command. this needs to be converted using docker module
+## we should remove elevated privs
 - name: Host DC/OS install package through nginx Docker container
-  command: docker run -d -p 80:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
-  args:
-    chdir: /home/centos
+  command: docker run -d -p 80:80 -v /genconf/serve:/usr/share/nginx/html:ro nginx
