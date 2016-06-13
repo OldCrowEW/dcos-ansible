@@ -21,3 +21,11 @@
   tags:
     - bootstrap
     - bootstrap-mesos-master
+
+- hosts: mesos-agents
+  sudo: yes
+  roles:
+    - bootstrap-mesos-slave
+  tags:
+    - bootstrap
+    - bootstrap-mesos-slave
