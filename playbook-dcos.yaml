@@ -5,3 +5,11 @@
     - common
   tags:
     - common
+
+- hosts: dcos-bootstrap
+  sudo: yes
+  roles:
+    - dcos-bootstrap
+  tags:
+    - bootstrap
+    - bootstrap-node

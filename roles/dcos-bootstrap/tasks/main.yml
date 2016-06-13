@@ -1,0 +1,23 @@
+---
+- name: Create genconf directory
+  file: path=/genconf state=directory
+
+- name: Copy configuration file
+  template: src=config.yaml.j2 dest=/genconf/config.yaml
+
+- name: Copy ip-detect file
+  template: src=ip-detect.j2 dest=/genconf/ip-detect
+
+- name: Download the DC/OS installer
+  get_url: url=https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh dest=/dcos_generate_config.sh
+
+- name: Generate customized DC/OS build file
+  command: bash /dcos_generate_config.sh
+  args:
+    chdir: /
+
+## cheat and run raw docker command. this needs to be converted using docker module
+- name: Host DC/OS install package through nginx Docker container
+  command: docker run -d -p 80:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
+  args:
+    chdir: /home/centos
