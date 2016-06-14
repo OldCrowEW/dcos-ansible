@@ -1,11 +1,11 @@
-bootstrap_url: http://192.168.0.10:80
+bootstrap_url: {{ bootstrap_url }}
 cluster_name: 'dcos-ansible'
 exhibitor_storage_backend: static
 ip_detect_filename: /genconf/ip-detect
 master_list:
-- 172.16.1.11
-- 172.16.1.12
-- 172.16.1.13
+{% for host in groups['mesos-master'] %}
+- {{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}
+{% endfor %}
 
 resolvers:
 - 8.8.4.4
