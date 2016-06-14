@@ -7,7 +7,7 @@ Currently all inventory IPs are hardcoded in the hosts.ini file. This will be up
 - [hosts.ini](https://github.com/OldCrowEW/dcos-ansible/blob/master/hosts.ini)
 - [group_vars/all](https://github.com/OldCrowEW/dcos-ansible/blob/master/group_vars/all)
 
-** Notice the hosts.ini file has one hostname set with ansible_host= override set to public IP.
+** Notice the hosts.ini file has one hostname set with ansible_host= override to public IP.
 
 ## Usage
 ```
