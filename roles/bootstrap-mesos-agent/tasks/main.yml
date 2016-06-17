@@ -8,7 +8,7 @@
 - name: Download the DC/OS installer from the nginx Docker container
   get_url: url={{ bootstrap_url }}/dcos_install.sh dest=/tmp/dcos/dcos_install.sh
 
-- name: Install DC/OS on your slave nodes
+- name: Install DC/OS
   command: bash dcos_install.sh slave
   args:
     chdir: /tmp/dcos
