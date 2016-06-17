@@ -11,5 +11,5 @@ Currently all inventory IPs are hardcoded in the hosts.ini file. This will be up
 
 ## Usage
 ```
-ansible-playbook -i hosts.ini playbook-dcos.yaml -u centos --private-key=key.pem
+ansible-playbook -i hosts.ini playbook-dcos.yml -u centos --private-key=key.pem
 ```
