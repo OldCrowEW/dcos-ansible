@@ -25,7 +25,7 @@
 - hosts: mesos-agent
   become: yes
   roles:
-    - bootstrap-mesos-slave
+    - bootstrap-mesos-agent
   tags:
     - bootstrap
-    - bootstrap-mesos-slave
+    - bootstrap-mesos-agent
