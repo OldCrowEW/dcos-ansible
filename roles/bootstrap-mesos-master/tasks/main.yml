@@ -2,9 +2,6 @@
 - name: Create /tmp/dcos directory
   file: path=/tmp/dcos state=directory
 
-- name: delete
-  file: path=/tmp/dcos/dcos_install.sh state=absent
-
 - name: Download the DC/OS installer from the nginx Docker container
   get_url: url={{ bootstrap_url }}/dcos_install.sh dest=/tmp/dcos/dcos_install.sh
 
