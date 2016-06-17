@@ -1,13 +1,13 @@
 --- 
 - hosts: dcos-cluster,dcos-bootstrap
-  sudo: yes
+  become: yes
   roles:
     - common
   tags:
     - common
 
 - hosts: dcos-bootstrap
-  sudo: yes
+  become: yes
   roles:
     - dcos-bootstrap
   tags:
@@ -15,7 +15,7 @@
     - bootstrap-node
 
 - hosts: mesos-master
-  sudo: yes
+  become: yes
   roles:
     - bootstrap-mesos-master
   tags:
@@ -23,7 +23,7 @@
     - bootstrap-mesos-master
 
 - hosts: mesos-agent
-  sudo: yes
+  become: yes
   roles:
     - bootstrap-mesos-slave
   tags:
