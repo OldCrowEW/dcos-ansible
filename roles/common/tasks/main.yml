@@ -16,9 +16,11 @@
 
 - name: Set Selinux permissive
   selinux: policy=targeted state=permissive
+  when: ansible_selinux is defined and ansible_selinux.status == "enabled"
 
 - name: Set Selinux permissive via cli
-  command: sudo setenforce 0
+  command: setenforce 0
+  when: ansible_selinux is defined and ansible_selinux.status == "enabled"
 
 - name: Add group nogroup
   group: name=nogroup state=present
