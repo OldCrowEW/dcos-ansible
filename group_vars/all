@@ -1,3 +1,4 @@
 bootstrap_url: "{{ bootstrap_internal_url }}"
 bootstrap_internal_url: http://{{ hostvars['bootstrap1']['ansible_eth0']['ipv4']['address'] }}:80
 bootstrap_external_url: http://192.168.0.10:80
+ip_detect_int: eth0
