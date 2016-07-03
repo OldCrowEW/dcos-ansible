@@ -8,5 +8,6 @@ dcos_bootstrap_generate_config_url: https://downloads.dcos.io/dcos/EarlyAccess
 dcos_bootstrap_generate_config: dcos_generate_config.sh
 dcos_cluster_name: 'dcos-ansible'
 dcos_exhibitor_storage_backend: static
+dcos_bootstrap_iface: eth0
 dcos_resolvers_0: '8.8.8.4'
 dcos_resolvers_1: '8.8.8.8'
