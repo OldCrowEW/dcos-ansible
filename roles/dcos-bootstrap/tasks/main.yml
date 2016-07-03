@@ -14,6 +14,9 @@
 - name: Download the DC/OS installer
   get_url: url={{ dcos_bootstrap_generate_config_url }}/{{ dcos_bootstrap_generate_config }} dest={{ dcos_bootstrap_dir }}/{{ dcos_bootstrap_generate_config }} mode=755
 
+- name: Add user to docker group
+  user: name={{ ansible_user_id }} groups=docker append=yes
+
 - name: Generate customized DC/OS build file
   command: '{{ dcos_bootstrap_dir }}/{{ dcos_bootstrap_generate_config }}'
   args:
