@@ -1,0 +1,12 @@
+bootstrap_url: {{ dcos_bootstrap_url }}
+cluster_name: {{ dcos_cluster_name }}
+exhibitor_storage_backend: {{ dcos_exhibitor_storage_backend }}
+ip_detect_filename: {{ dcos_bootstrap_dir }}/genconf/ip-detect
+master_list:
+{% for host in groups['mesos-master'] %}
+- {{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}
+{% endfor %}
+
+resolvers:
+	- {{ dcos_resolvers_0 }}
+	- {{ dcos_resolvers_1 }}

@@ -1,4 +1,11 @@
-bootstrap_url: "{{ bootstrap_internal_url }}"
+dcos_bootstrap_url: "{{ bootstrap_internal_url }}"
 bootstrap_internal_url: http://{{ hostvars['bootstrap1']['ansible_eth0']['ipv4']['address'] }}:80
 bootstrap_external_url: http://192.168.0.10:80
-ip_detect_int: eth0
+dcos_iface: eth0
+dcos_bootstrap_dir : '{{ansible_env.HOME}}/dcos-bootstrap'
+dcos_bootstrap_generate_config_url: https://downloads.dcos.io/dcos/EarlyAccess
+dcos_bootstrap_generate_config: dcos_generate_config.sh
+dcos_cluster_name: 'dcos-ansible'
+dcos_exhibitor_storage_backend: static
+dcos_resolvers_0: '8.8.8.4'
+dcos_resolvers_1: '8.8.8.8'
