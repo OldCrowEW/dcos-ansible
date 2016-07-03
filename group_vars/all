@@ -1,6 +1,7 @@
 dcos_bootstrap_url: "{{ bootstrap_internal_url }}"
-bootstrap_internal_url: http://{{ hostvars['bootstrap1']['ansible_eth0']['ipv4']['address'] }}:80
-bootstrap_external_url: http://192.168.0.10:80
+bootstrap_internal_url: http://{{ hostvars['bootstrap1']['ansible_eth0']['ipv4']['address'] }}:{{ dcos_bootstrap_port }}
+bootstrap_external_url: http://192.168.0.10:{{ dcos_bootstrap_port }}
+dcos_bootstrap_port: 80
 dcos_iface: eth0
 dcos_bootstrap_dir : '{{ansible_env.HOME}}/dcos-bootstrap'
 dcos_bootstrap_generate_config_url: https://downloads.dcos.io/dcos/EarlyAccess
