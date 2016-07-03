@@ -6,7 +6,7 @@
   file: path=/tmp/dcos/dcos_install.sh state=absent
 
 - name: Download the DC/OS installer from the nginx Docker container
-  get_url: url={{ bootstrap_url }}/dcos_install.sh dest=/tmp/dcos/dcos_install.sh
+  get_url: url={{ dcos_bootstrap_url }}/dcos_install.sh dest=/tmp/dcos/dcos_install.sh
 
 - name: Install DC/OS
   command: bash dcos_install.sh slave
