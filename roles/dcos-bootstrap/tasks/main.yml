@@ -1,20 +1,23 @@
 ---
 - name: Create genconf directory
-  file: path=/genconf state=directory
+  file: path={{ item }} state=directory mode=755
+  with_items:
+    - '{{ dcos_bootstrap_dir }}'
+    - '{{ dcos_bootstrap_dir }}/genconf'
 
 - name: Copy configuration file
-  template: src=config.yaml.j2 dest=/genconf/config.yaml
+  template: src=genconf/config.yaml.j2 dest={{ dcos_bootstrap_dir }}/config.yaml mode=755
 
 - name: Copy ip-detect file
-  template: src=ip-detect.j2 dest=/genconf/ip-detect
+  template: src=genconf/ip-detect.j2 dest={{ dcos_bootstrap_dir }}/ip-detect mode=755
 
 - name: Download the DC/OS installer
-  get_url: url=https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh dest=/dcos_generate_config.sh
+  get_url: url={{ dcos_bootstrap_generate_config_url }}/{{ dcos_bootstrap_generate_config }} dest={{ dcos_bootstrap_dir }}/{{ dcos_bootstrap_generate_config }}
 
 - name: Generate customized DC/OS build file
-  command: bash /dcos_generate_config.sh
+  command: '{{ dcos_bootstrap_dir }}/{{ dcos_bootstrap_generate_config }}'
   args:
-    chdir: /
+    chdir: '{{ dcos_bootstrap_dir }}'
 
 ## cheat and run raw docker command. this needs to be converted using docker module
 ## we should remove elevated privs
