@@ -1,3 +1,6 @@
 [submodule "roles/ansible-dcos-common"]
 	path = roles/ansible-dcos-common
 	url = https://github.com/OldCrowEW/ansible-dcos-common
+[submodule "roles/ansible-dcos-bootstrap-node"]
+	path = roles/ansible-dcos-bootstrap-node
+	url = git@github.com:OldCrowEW/ansible-dcos-bootstrap-node.git

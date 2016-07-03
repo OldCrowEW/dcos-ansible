@@ -9,10 +9,10 @@
 
 - hosts: dcos-bootstrap
   roles:
-    - dcos-bootstrap
+    - ansible-dcos-bootstrap-node
   tags:
     - bootstrap
-    - bootstrap-node
+    - ansible-dcos-bootstrap-node
 
 - hosts: mesos-master
   become: yes
