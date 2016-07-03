@@ -7,3 +7,6 @@
 [submodule "roles/ansible-dcos-bootstrap-master"]
 	path = roles/ansible-dcos-bootstrap-master
 	url = https://github.com/OldCrowEW/ansible-dcos-bootstrap-master
+[submodule "roles/ansible-dcos-bootstrap-agent"]
+	path = roles/ansible-dcos-bootstrap-agent
+	url = https://github.com/OldCrowEW/ansible-dcos-bootstrap-agent
