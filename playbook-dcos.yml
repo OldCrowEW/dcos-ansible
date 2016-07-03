@@ -17,10 +17,10 @@
 - hosts: mesos-master
   become: yes
   roles:
-    - bootstrap-mesos-master
+    - ansible-dcos-bootstrap-master
   tags:
     - bootstrap
-    - bootstrap-mesos-master
+    - ansible-dcos-bootstrap-master
 
 - hosts: mesos-agent
   become: yes
