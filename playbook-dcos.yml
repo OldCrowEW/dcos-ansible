@@ -2,9 +2,10 @@
 - hosts: dcos-cluster,dcos-bootstrap
   become: yes
   roles:
-    - common
+    - ansible-dcos-common
   tags:
     - common
+    - ansible-dcos-common
 
 - hosts: dcos-bootstrap
   roles:
