@@ -3,7 +3,7 @@
 	url = https://github.com/OldCrowEW/ansible-dcos-common
 [submodule "roles/ansible-dcos-bootstrap-node"]
 	path = roles/ansible-dcos-bootstrap-node
-	url = git@github.com:OldCrowEW/ansible-dcos-bootstrap-node.git
+	url = https://github.com/OldCrowEW/ansible-dcos-bootstrap-node.git
 [submodule "roles/ansible-dcos-bootstrap-master"]
 	path = roles/ansible-dcos-bootstrap-master
 	url = https://github.com/OldCrowEW/ansible-dcos-bootstrap-master
